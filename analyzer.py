@@ -1,8 +1,12 @@
 from google import genai
 from PIL import Image
+from dotenv import load_dotenv
 import io
+import os
 
-client = genai.Client(api_key="AIzaSyClP8R_WbucRbiqCH9rlkfTC8u6tDJyPL8")
+load_dotenv()
+
+client = genai.Client(api_key=os.getenv("API_KEY"))
 
 def gemini_analyzer(image_bytes):
     image = Image.open(io.BytesIO(image_bytes))
